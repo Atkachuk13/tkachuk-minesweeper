@@ -22,13 +22,14 @@ public class MinesweeperFrame extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Top panel with flag counter, timer, and reset button
-        JPanel topPanel = new JPanel(new BorderLayout());
-
         // Left side - Flags
         flagLabel = new JLabel("Flags: " + (game.getNumBombs() - game.getFlagCount()));
         flagLabel.setFont(new Font("Arial", Font.BOLD, 18));
         JPanel leftPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        // Top panel with flag counter, timer, and reset button
+        JPanel topPanel = new JPanel(new BorderLayout());
+
         leftPanel.add(flagLabel);
         topPanel.add(leftPanel, BorderLayout.WEST);
 

@@ -67,7 +67,10 @@ public class Minesweeper
         {
             for (int dc = -1; dc <= 1; dc++)
             {
-                if (dr == 0 && dc == 0) continue;
+                if (dr == 0 && dc == 0)
+                {
+                    continue;
+                }
                 int nr = row + dr;
                 int nc = col + dc;
                 if (isValid(nr, nc) && board[nr][nc] == -1)
@@ -86,10 +89,22 @@ public class Minesweeper
 
     public boolean reveal(int row, int col)
     {
-        if (gameOver || gameWon) return false;
-        if (!isValid(row, col)) return false;
-        if (revealed[row][col]) return false;
-        if (flagged[row][col]) return false;
+        if (gameOver || gameWon)
+        {
+            return false;
+        }
+        if (!isValid(row, col))
+        {
+            return false;
+        }
+        if (revealed[row][col])
+        {
+            return false;
+        }
+        if (flagged[row][col])
+        {
+            return false;
+        }
 
         // Start the game on first reveal
         if (!gameStarted)
@@ -114,7 +129,10 @@ public class Minesweeper
             {
                 for (int dc = -1; dc <= 1; dc++)
                 {
-                    if (dr == 0 && dc == 0) continue;
+                    if (dr == 0 && dc == 0)
+                    {
+                        continue;
+                    }
                     int nr = row + dr;
                     int nc = col + dc;
                     if (isValid(nr, nc) && !revealed[nr][nc])
@@ -131,9 +149,18 @@ public class Minesweeper
 
     public void toggleFlag(int row, int col)
     {
-        if (gameOver || gameWon) return;
-        if (!isValid(row, col)) return;
-        if (revealed[row][col]) return;
+        if (gameOver || gameWon)
+        {
+            return;
+        }
+        if (!isValid(row, col))
+        {
+            return;
+        }
+        if (revealed[row][col])
+        {
+            return;
+        }
 
         flagged[row][col] = !flagged[row][col];
     }
@@ -174,7 +201,10 @@ public class Minesweeper
         {
             for (int c = 0; c < cols; c++)
             {
-                if (flagged[r][c]) count++;
+                if (flagged[r][c])
+                {
+                    count++;
+                }
             }
         }
         return count;
